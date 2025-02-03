@@ -18,4 +18,4 @@
 |**External Oscillator Mode**|HS|
 |**LCD Reset Bit**|RC0|
 |**LCD Enable Bit**|RC1|
-|**LCD Data Bit**|RD0~RD7|
+|**LCD Data Bits**|RD0~RD7|
