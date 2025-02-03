@@ -12,7 +12,7 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-#include "../mcc_generated_files/system/system.h"
+#include "../../../mcc_generated_files/system/system.h"
 
 
 #define LCD_Data LATD       // Setting LCD Byte Data Port
