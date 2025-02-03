@@ -12,12 +12,13 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-#include "../../../mcc_generated_files/system/system.h"
+    
+#include "../../../mcc_generated_files/system/system.h" // Include MCC
 
 
-#define LCD_Data LATD       // Setting LCD Byte Data Port
-#define LCD_RS IO_RC0_LAT   // Setting LCD RS
-#define LCD_EN IO_RC1_LAT   // Setting LCD EN
+#define LCD_Data LATD                           // Setting LCD Byte Data Port
+#define LCD_RS IO_RC0_LAT                       // Setting LCD RS
+#define LCD_EN IO_RC1_LAT                       // Setting LCD EN
 #define LCD_RS_SetLow()     IO_RC0_SetLow()
 #define LCD_RS_SetHigh()    IO_RC0_SetHigh()
 #define LCD_EN_SetLow()     IO_RC1_SetLow()
@@ -36,18 +37,18 @@ extern "C" {
 #define LCD_ROW_0            0x00  // 第一行起始地址
 #define LCD_ROW_1            0x40  // 第二行起始地址
         
-    typedef enum : unsigned char{
+    enum LCD_State: unsigned char{
         LCD_IDLE = 0,
         LCD_SENDING = 1,
         LCD_DELAYING = 2
-    } LCD_State_t;
+    } ;
     
-    typedef struct{
-        volatile LCD_State_t currState;
+    typedef struct LCD_t{
+        volatile LCD_State currState;
         bool sendFlag, isDelaying;
         unsigned char data;
         volatile unsigned int timer_tick; 
-    }LCD_t;
+    };
     
     extern volatile LCD_t LCD_Module;
     
