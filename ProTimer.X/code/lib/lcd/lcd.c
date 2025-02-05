@@ -69,7 +69,7 @@ void LCD_Pulse(void){
     __delay_us(100);    // 等待 LCD 處理指令
 }
 
-void LCD_Task(void){
+void LCD_Task(void)g{
     switch(LCD_Module.currState){
         case LCD_IDLE:
             if(LCD_Module.sendFlag == true){

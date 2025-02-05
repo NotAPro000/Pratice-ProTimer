@@ -44,8 +44,8 @@ extern "C" {
     } ;
     
     typedef struct LCD_t{
+        volatile bool busyflag;
         volatile LCD_State currState;
-        bool sendFlag, isDelaying;
         unsigned char data;
         volatile unsigned int timer_tick; 
     };
