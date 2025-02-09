@@ -20761,22 +20761,95 @@ extern void (*INT_InterruptHandler)(void);
 # 175 "./mcc_generated_files/system/../system/interrupt.h"
 void INT_DefaultInterruptHandler(void);
 # 45 "./mcc_generated_files/system/system.h" 2
-# 54 "./mcc_generated_files/system/system.h"
+
+# 1 "./mcc_generated_files/system/../timer/tmr0.h" 1
+# 40 "./mcc_generated_files/system/../timer/tmr0.h"
+# 1 "./mcc_generated_files/system/../timer/tmr0_deprecated.h" 1
+# 41 "./mcc_generated_files/system/../timer/tmr0.h" 2
+# 162 "./mcc_generated_files/system/../timer/tmr0.h"
+void TMR0_Initialize(void);
+
+
+
+
+
+
+
+void TMR0_Deinitialize(void);
+# 179 "./mcc_generated_files/system/../timer/tmr0.h"
+void TMR0_Start(void);
+# 188 "./mcc_generated_files/system/../timer/tmr0.h"
+void TMR0_Stop(void);
+# 197 "./mcc_generated_files/system/../timer/tmr0.h"
+uint8_t TMR0_CounterGet(void);
+# 206 "./mcc_generated_files/system/../timer/tmr0.h"
+void TMR0_CounterSet(uint8_t counterValue);
+# 215 "./mcc_generated_files/system/../timer/tmr0.h"
+void TMR0_PeriodSet(uint8_t periodCount);
+# 224 "./mcc_generated_files/system/../timer/tmr0.h"
+uint8_t TMR0_PeriodGet(void);
+
+
+
+
+
+
+
+uint8_t TMR0_MaxCountGet(void);
+
+
+
+
+
+
+
+void TMR0_TMRInterruptEnable(void);
+
+
+
+
+
+
+
+void TMR0_TMRInterruptDisable(void);
+
+
+
+
+
+
+
+void TMR0_ISR(void);
+
+
+
+
+
+
+
+void TMR0_PeriodMatchCallbackRegister(void (* CallbackHandler)(void));
+# 47 "./mcc_generated_files/system/system.h" 2
+
+
+
+
+
+
+
+
 void SYSTEM_Initialize(void);
 # 37 "main.c" 2
-
-
 # 1 "./code/lib/lcd/lcd.h" 1
-# 39 "./code/lib/lcd/lcd.h"
-    typedef enum : unsigned char{
+# 40 "./code/lib/lcd/lcd.h"
+    enum LCD_State: unsigned char{
         LCD_IDLE = 0,
         LCD_SENDING = 1,
         LCD_DELAYING = 2
-    } LCD_State_t;
+    } ;
 
     typedef struct{
-        volatile LCD_State_t currState;
-        _Bool sendFlag, isDelaying;
+        volatile _Bool busyflag;
+        volatile LCD_State currState;
         unsigned char data;
         volatile unsigned int timer_tick;
     }LCD_t;
@@ -20792,7 +20865,11 @@ void SYSTEM_Initialize(void);
     void LCD_SendByte(unsigned char byte, unsigned char mode);
     void LCD_Pulse(void);
     void LCD_Task(void);
-# 40 "main.c" 2
+# 38 "main.c" 2
+# 1 "./main.h" 1
+# 15 "./main.h"
+    void CustomInitialize();
+# 39 "main.c" 2
 
 
 
@@ -20801,9 +20878,13 @@ void SYSTEM_Initialize(void);
 int main(void)
 {
     SYSTEM_Initialize();
-# 65 "main.c"
+# 63 "main.c"
     while(1)
     {
 
     }
+}
+
+void CustomInitialize(void){
+    TMR0_PeriodMatchCallbackRegister();
 }

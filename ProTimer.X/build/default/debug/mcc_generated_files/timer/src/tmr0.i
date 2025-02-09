@@ -1,4 +1,4 @@
-# 1 "code/lib/lcd/lcd.c"
+# 1 "mcc_generated_files/timer/src/tmr0.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,190 +6,42 @@
 # 1 "<built-in>" 2
 # 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "code/lib/lcd/lcd.c" 2
+# 1 "mcc_generated_files/timer/src/tmr0.c" 2
+# 35 "mcc_generated_files/timer/src/tmr0.c"
+# 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
+# 18 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+# 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 1 3
 
 
 
-
-
-
-
-# 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
+# 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 1 3
 
 
 
 # 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/musl_xc8.h" 1 3
-# 5 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
+# 5 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
 
 
 
 
 
 # 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/features.h" 1 3
-# 11 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
-# 24 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
-# 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 12 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 128 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef unsigned size_t;
-# 143 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef short ssize_t;
-# 174 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 210 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 255 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
-# 52 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 9 "code/lib/lcd/lcd.c" 2
-# 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 1 3
+# 11 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
 # 21 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 3
 # 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
 # 24 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
 typedef long int wchar_t;
+# 128 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef unsigned size_t;
+# 174 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __uint24 uint24_t;
 # 22 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
 
 int atoi (const char *);
@@ -262,21 +114,14 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 10 "code/lib/lcd/lcd.c" 2
-
-# 1 "code/lib/lcd/lcd.h" 1
-# 16 "code/lib/lcd/lcd.h"
-# 1 "code/lib/lcd/../../../mcc_generated_files/system/system.h" 1
-# 39 "code/lib/lcd/../../../mcc_generated_files/system/system.h"
-# 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
-# 18 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
+# 5 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 2 3
 
 
-# 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 1 3
-# 12 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 3
+
+
+
+
+
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 24 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
@@ -20877,49 +20722,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 40 "code/lib/lcd/../../../mcc_generated_files/system/system.h" 2
-
+# 36 "mcc_generated_files/timer/src/tmr0.c" 2
+# 1 "mcc_generated_files/timer/src/../tmr0.h" 1
+# 39 "mcc_generated_files/timer/src/../tmr0.h"
 # 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
-# 42 "code/lib/lcd/../../../mcc_generated_files/system/system.h" 2
-# 1 "code/lib/lcd/../../../mcc_generated_files/system/config_bits.h" 1
-# 39 "code/lib/lcd/../../../mcc_generated_files/system/config_bits.h"
-# 1 "code/lib/lcd/../../../mcc_generated_files/system/../system/clock.h" 1
-# 56 "code/lib/lcd/../../../mcc_generated_files/system/../system/clock.h"
-void CLOCK_Initialize(void);
-# 40 "code/lib/lcd/../../../mcc_generated_files/system/config_bits.h" 2
-# 43 "code/lib/lcd/../../../mcc_generated_files/system/system.h" 2
-# 1 "code/lib/lcd/../../../mcc_generated_files/system/../system/pins.h" 1
-# 248 "code/lib/lcd/../../../mcc_generated_files/system/../system/pins.h"
-void PIN_MANAGER_Initialize (void);
-
-
-
-
-
-
-
-void PIN_MANAGER_IOC(void);
-# 44 "code/lib/lcd/../../../mcc_generated_files/system/system.h" 2
-# 1 "code/lib/lcd/../../../mcc_generated_files/system/../system/interrupt.h" 1
-# 85 "code/lib/lcd/../../../mcc_generated_files/system/../system/interrupt.h"
-void INTERRUPT_Initialize (void);
-# 139 "code/lib/lcd/../../../mcc_generated_files/system/../system/interrupt.h"
-void INT_ISR(void);
-# 148 "code/lib/lcd/../../../mcc_generated_files/system/../system/interrupt.h"
-void INT_CallBack(void);
-# 157 "code/lib/lcd/../../../mcc_generated_files/system/../system/interrupt.h"
-void INT_SetInterruptHandler(void (* InterruptHandler)(void));
-# 166 "code/lib/lcd/../../../mcc_generated_files/system/../system/interrupt.h"
-extern void (*INT_InterruptHandler)(void);
-# 175 "code/lib/lcd/../../../mcc_generated_files/system/../system/interrupt.h"
-void INT_DefaultInterruptHandler(void);
-# 45 "code/lib/lcd/../../../mcc_generated_files/system/system.h" 2
-
-# 1 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h" 1
-# 40 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h"
-# 1 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0_deprecated.h" 1
-# 41 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h" 2
-# 162 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h"
+# 40 "mcc_generated_files/timer/src/../tmr0.h" 2
+# 1 "mcc_generated_files/timer/src/../tmr0_deprecated.h" 1
+# 41 "mcc_generated_files/timer/src/../tmr0.h" 2
+# 162 "mcc_generated_files/timer/src/../tmr0.h"
 void TMR0_Initialize(void);
 
 
@@ -20929,17 +20739,17 @@ void TMR0_Initialize(void);
 
 
 void TMR0_Deinitialize(void);
-# 179 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h"
+# 179 "mcc_generated_files/timer/src/../tmr0.h"
 void TMR0_Start(void);
-# 188 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h"
+# 188 "mcc_generated_files/timer/src/../tmr0.h"
 void TMR0_Stop(void);
-# 197 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h"
+# 197 "mcc_generated_files/timer/src/../tmr0.h"
 uint8_t TMR0_CounterGet(void);
-# 206 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h"
+# 206 "mcc_generated_files/timer/src/../tmr0.h"
 void TMR0_CounterSet(uint8_t counterValue);
-# 215 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h"
+# 215 "mcc_generated_files/timer/src/../tmr0.h"
 void TMR0_PeriodSet(uint8_t periodCount);
-# 224 "code/lib/lcd/../../../mcc_generated_files/system/../timer/tmr0.h"
+# 224 "mcc_generated_files/timer/src/../tmr0.h"
 uint8_t TMR0_PeriodGet(void);
 
 
@@ -20981,103 +20791,111 @@ void TMR0_ISR(void);
 
 
 void TMR0_PeriodMatchCallbackRegister(void (* CallbackHandler)(void));
-# 47 "code/lib/lcd/../../../mcc_generated_files/system/system.h" 2
+# 37 "mcc_generated_files/timer/src/tmr0.c" 2
+
+static void (*TMR0_PeriodMatchCallback)(void);
+static void TMR0_DefaultCallback(void);
 
 
 
 
 
+void TMR0_Initialize(void)
+{
+    TMR0H = 0x2;
+    TMR0L = 0x0;
 
+    T0CON1 = (2 << 0x5)
+        | (0 << 0x0)
+        | (0 << 0x4);
 
+    TMR0_PeriodMatchCallback = TMR0_DefaultCallback;
 
-void SYSTEM_Initialize(void);
-# 17 "code/lib/lcd/lcd.h" 2
-# 40 "code/lib/lcd/lcd.h"
-    enum LCD_State: unsigned char{
-        LCD_IDLE = 0,
-        LCD_SENDING = 1,
-        LCD_DELAYING = 2
-    } ;
+    PIR0bits.TMR0IF = 0;
+    PIE0bits.TMR0IE = 1;
 
-    typedef struct{
-        volatile _Bool busyflag;
-        volatile LCD_State currState;
-        unsigned char data;
-        volatile unsigned int timer_tick;
-    }LCD_t;
-
-    extern volatile LCD_t LCD_Module;
-
-    void LCD_Init(void);
-    void LCD_Command(unsigned char cmd);
-    void LCD_Char(unsigned char data);
-    void LCD_String(const char *msg);
-    void LCD_SetCursor(unsigned char row, unsigned char col);
-    void Delay_x_mS(unsigned int N_ms);
-    void LCD_SendByte(unsigned char byte, unsigned char mode);
-    void LCD_Pulse(void);
-    void LCD_Task(void);
-# 12 "code/lib/lcd/lcd.c" 2
-
-
-
-
-
-volatile LCD_t LCD_Module;
-
-void LCD_Init(void){
-    LCD_Module.currState = LCD_IDLE;
-    LCD_Module.timer_tick = 0;
-    do { LATCbits.LATC0 = 0; } while(0);
-    do { LATCbits.LATC1 = 0; } while(0);
-    LCD_Command(0x38);
-    _delay((unsigned long)((1)*(12000U/4000.0)));
-    LCD_Command(0x02);
-    _delay((unsigned long)((1)*(12000U/4000.0)));
-    LCD_Command(0x01);
-    _delay((unsigned long)((1)*(12000U/4000.0)));
-    LCD_Command(0x0C);
-    _delay((unsigned long)((1)*(12000U/4000.0)));
-    LCD_Command(0x06);
-    _delay((unsigned long)((2)*(12000U/4000.0)));
+    T0CON0 = (0 << 0x0)
+        | (1 << 0x7)
+        | (0 << 0x4);
 }
 
-void LCD_Command(unsigned char cmd){
-    LCD_SendByte(cmd, 0);
+void TMR0_Deinitialize(void)
+{
+    T0CON0bits.T0EN = 0;
+
+    PIR0bits.TMR0IF = 0;
+    PIE0bits.TMR0IE = 0;
+
+    T0CON0 = 0x0;
+    T0CON1 = 0x0;
+    TMR0H = 0xFF;
+    TMR0L =0x0;
 }
 
-void LCD_Char(unsigned char data){
-    LCD_SendByte(data, 1);
+void TMR0_Start(void)
+{
+    T0CON0bits.T0EN = 1;
 }
 
-void LCD_String(const char *msg){
-    while((*msg != '\0')){
-        LCD_Char(*msg);
-        msg++;
+void TMR0_Stop(void)
+{
+    T0CON0bits.T0EN = 0;
+}
+
+uint8_t TMR0_CounterGet(void)
+{
+    uint8_t counterValue;
+
+    counterValue = TMR0L;
+
+    return counterValue;
+}
+
+void TMR0_CounterSet(uint8_t counterValue)
+{
+    TMR0L = counterValue;
+ }
+
+void TMR0_PeriodSet(uint8_t periodValue)
+{
+   TMR0H = periodValue;
+}
+
+uint8_t TMR0_PeriodGet(void)
+{
+    return TMR0H;
+}
+
+uint8_t TMR0_MaxCountGet(void)
+{
+    return (255U);
+}
+
+void TMR0_TMRInterruptEnable(void)
+{
+    PIE0bits.TMR0IE = 1;
+}
+
+void TMR0_TMRInterruptDisable(void)
+{
+    PIE0bits.TMR0IE = 0;
+}
+
+void TMR0_ISR(void)
+{
+    if(((void*)0) != TMR0_PeriodMatchCallback)
+    {
+        TMR0_PeriodMatchCallback();
     }
+    PIR0bits.TMR0IF = 0;
 }
 
-void LCD_SetCursor(unsigned char row, unsigned char col){
-    unsigned char address = (row == 1) ? 0x40 : 0x00;
-    address += col;
-    LCD_Command(0x80 | address);
+void TMR0_PeriodMatchCallbackRegister(void (* callbackHandler)(void))
+{
+    TMR0_PeriodMatchCallback = callbackHandler;
 }
 
-void LCD_SendByte(unsigned char byte, unsigned char mode){
-    LATCbits.LATC0 = mode;
-    LATD = byte;
-    LCD_Pulse();
-}
+static void TMR0_DefaultCallback(void)
+{
 
-void LCD_Pulse(void){
-    LATCbits.LATC1= 1;
-    _delay((unsigned long)((1)*(12000U/4000000.0)));
-    LATCbits.LATC1 = 0;
-    _delay((unsigned long)((100)*(12000U/4000000.0)));
-}
-
-void LCD_Task(void)g{
-    switch(LCD_Module.currState){
-
-    }
 }

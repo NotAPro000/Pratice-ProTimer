@@ -18,8 +18,6 @@ volatile LCD_t LCD_Module;
 
 void LCD_Init(void){
     LCD_Module.currState = LCD_IDLE;
-    LCD_Module.isDelaying = false;
-    LCD_Module.sendFlag = false;
     LCD_Module.timer_tick = 0;
     LCD_RS_SetLow();
     LCD_EN_SetLow();
@@ -69,21 +67,20 @@ void LCD_Pulse(void){
     __delay_us(100);    // 等待 LCD 處理指令
 }
 
-void LCD_Task(void)g{
+void LCD_Task(void){
     switch(LCD_Module.currState){
         case LCD_IDLE:
-            if(LCD_Module.sendFlag == true){
-                LCD_Module.sendFlag = false;
+            if(LCD_Module.sendFlag){
+                
                 LCD_Module.currState = LCD_SENDING;
             }
             break;
         case LCD_SENDING:
-            
             break;
         case LCD_DELAYING:
             break;
         default:
-            LCD_Module.currState = LCD_IDLE;
             break;
     }
 }
+

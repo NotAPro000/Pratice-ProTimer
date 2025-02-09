@@ -20761,7 +20761,82 @@ extern void (*INT_InterruptHandler)(void);
 # 175 "mcc_generated_files/system/src/../../system/interrupt.h"
 void INT_DefaultInterruptHandler(void);
 # 45 "mcc_generated_files/system/src/../system.h" 2
-# 54 "mcc_generated_files/system/src/../system.h"
+
+# 1 "mcc_generated_files/system/src/../../timer/tmr0.h" 1
+# 40 "mcc_generated_files/system/src/../../timer/tmr0.h"
+# 1 "mcc_generated_files/system/src/../../timer/tmr0_deprecated.h" 1
+# 41 "mcc_generated_files/system/src/../../timer/tmr0.h" 2
+# 162 "mcc_generated_files/system/src/../../timer/tmr0.h"
+void TMR0_Initialize(void);
+
+
+
+
+
+
+
+void TMR0_Deinitialize(void);
+# 179 "mcc_generated_files/system/src/../../timer/tmr0.h"
+void TMR0_Start(void);
+# 188 "mcc_generated_files/system/src/../../timer/tmr0.h"
+void TMR0_Stop(void);
+# 197 "mcc_generated_files/system/src/../../timer/tmr0.h"
+uint8_t TMR0_CounterGet(void);
+# 206 "mcc_generated_files/system/src/../../timer/tmr0.h"
+void TMR0_CounterSet(uint8_t counterValue);
+# 215 "mcc_generated_files/system/src/../../timer/tmr0.h"
+void TMR0_PeriodSet(uint8_t periodCount);
+# 224 "mcc_generated_files/system/src/../../timer/tmr0.h"
+uint8_t TMR0_PeriodGet(void);
+
+
+
+
+
+
+
+uint8_t TMR0_MaxCountGet(void);
+
+
+
+
+
+
+
+void TMR0_TMRInterruptEnable(void);
+
+
+
+
+
+
+
+void TMR0_TMRInterruptDisable(void);
+
+
+
+
+
+
+
+void TMR0_ISR(void);
+
+
+
+
+
+
+
+void TMR0_PeriodMatchCallbackRegister(void (* CallbackHandler)(void));
+# 47 "mcc_generated_files/system/src/../system.h" 2
+
+
+
+
+
+
+
+
 void SYSTEM_Initialize(void);
 # 37 "mcc_generated_files/system/src/system.c" 2
 
@@ -20770,5 +20845,6 @@ void SYSTEM_Initialize(void)
 {
     CLOCK_Initialize();
     PIN_MANAGER_Initialize();
+    TMR0_Initialize();
     INTERRUPT_Initialize();
 }

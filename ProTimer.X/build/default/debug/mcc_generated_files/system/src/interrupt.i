@@ -20761,7 +20761,83 @@ void PIN_MANAGER_Initialize (void);
 
 void PIN_MANAGER_IOC(void);
 # 44 "mcc_generated_files/system/src/../../system/system.h" 2
-# 54 "mcc_generated_files/system/src/../../system/system.h"
+
+
+# 1 "mcc_generated_files/system/src/../../system/../timer/tmr0.h" 1
+# 40 "mcc_generated_files/system/src/../../system/../timer/tmr0.h"
+# 1 "mcc_generated_files/system/src/../../system/../timer/tmr0_deprecated.h" 1
+# 41 "mcc_generated_files/system/src/../../system/../timer/tmr0.h" 2
+# 162 "mcc_generated_files/system/src/../../system/../timer/tmr0.h"
+void TMR0_Initialize(void);
+
+
+
+
+
+
+
+void TMR0_Deinitialize(void);
+# 179 "mcc_generated_files/system/src/../../system/../timer/tmr0.h"
+void TMR0_Start(void);
+# 188 "mcc_generated_files/system/src/../../system/../timer/tmr0.h"
+void TMR0_Stop(void);
+# 197 "mcc_generated_files/system/src/../../system/../timer/tmr0.h"
+uint8_t TMR0_CounterGet(void);
+# 206 "mcc_generated_files/system/src/../../system/../timer/tmr0.h"
+void TMR0_CounterSet(uint8_t counterValue);
+# 215 "mcc_generated_files/system/src/../../system/../timer/tmr0.h"
+void TMR0_PeriodSet(uint8_t periodCount);
+# 224 "mcc_generated_files/system/src/../../system/../timer/tmr0.h"
+uint8_t TMR0_PeriodGet(void);
+
+
+
+
+
+
+
+uint8_t TMR0_MaxCountGet(void);
+
+
+
+
+
+
+
+void TMR0_TMRInterruptEnable(void);
+
+
+
+
+
+
+
+void TMR0_TMRInterruptDisable(void);
+
+
+
+
+
+
+
+void TMR0_ISR(void);
+
+
+
+
+
+
+
+void TMR0_PeriodMatchCallbackRegister(void (* CallbackHandler)(void));
+# 47 "mcc_generated_files/system/src/../../system/system.h" 2
+
+
+
+
+
+
+
+
 void SYSTEM_Initialize(void);
 # 36 "mcc_generated_files/system/src/interrupt.c" 2
 
@@ -20779,7 +20855,26 @@ void INTERRUPT_Initialize (void)
 
 
 }
+# 59 "mcc_generated_files/system/src/interrupt.c"
+void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
+{
 
+    if(INTCONbits.PEIE == 1)
+    {
+        if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+        {
+            TMR0_ISR();
+        }
+        else
+        {
+
+        }
+    }
+    else
+    {
+
+    }
+}
 
 void INT_ISR(void)
 {

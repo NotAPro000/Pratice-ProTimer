@@ -43,12 +43,13 @@ extern "C" {
         LCD_DELAYING = 2
     } ;
     
-    typedef struct LCD_t{
+    typedef struct{
         volatile bool busyflag;
         volatile LCD_State currState;
+        bool sendFlag;
         unsigned char data;
         volatile unsigned int timer_tick; 
-    };
+    }LCD_t;
     
     extern volatile LCD_t LCD_Module;
     
@@ -61,6 +62,7 @@ extern "C" {
     void LCD_SendByte(unsigned char byte, unsigned char mode);
     void LCD_Pulse(void);
     void LCD_Task(void);
+    void LCD_TimerStep(void);
 
     
     

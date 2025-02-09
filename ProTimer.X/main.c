@@ -34,9 +34,8 @@
 */
 
 #include "mcc_generated_files/system/system.h"
-
-
 #include "code/lib/lcd/lcd.h"
+#include "main.h"
 
 /*
     Main application
@@ -61,9 +60,12 @@ int main(void)
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
 
-
     while(1)
     {
         
     }    
+}
+
+void CustomInitialize(void){
+    TMR0_PeriodMatchCallbackRegister();
 }
