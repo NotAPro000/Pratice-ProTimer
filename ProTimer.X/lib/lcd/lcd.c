@@ -67,6 +67,8 @@ void LCD_Pulse(void){
     __delay_us(100);    // 等待 LCD 處理指令
 }
 
+
+// For Furture Oprion
 void LCD_Task(void){
     switch(LCD_Module.currState){
         case LCD_IDLE:

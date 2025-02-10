@@ -3,20 +3,12 @@
 [d edition pro ]
 [d chip 16F18877 ]
 [d frameptr 6 ]
-"17 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\code/lib/lcd/lcd.c
-[e E12491 . `uc
+"17 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\lib/lcd/lcd.c
+[e E12510 LCD_State `uc
 LCD_IDLE 0
 LCD_SENDING 1
 LCD_DELAYING 2
 ]
-"38
-[v _LCD_Command LCD_Command `(v  1 e 1 0 ]
-"42
-[v _LCD_Char LCD_Char `(v  1 e 1 0 ]
-"59
-[v _LCD_SendByte LCD_SendByte `(v  1 e 1 0 ]
-"65
-[v _LCD_Pulse LCD_Pulse `(v  1 e 1 0 ]
 "10 D:\Apps\Tools\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 D:\Apps\Tools\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8_16.c
@@ -25,33 +17,46 @@ LCD_DELAYING 2
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"45 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\main.c
+"36 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\lib/lcd/lcd.c
+[v _LCD_Command LCD_Command `(v  1 e 1 0 ]
+"40
+[v _LCD_Char LCD_Char `(v  1 e 1 0 ]
+"57
+[v _LCD_SendByte LCD_SendByte `(v  1 e 1 0 ]
+"63
+[v _LCD_Pulse LCD_Pulse `(v  1 e 1 0 ]
+"43 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\main.c
 [v _main main `(i  1 e 2 0 ]
 "39 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/clock.c
 [v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
 "40 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/interrupt.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
-"62
+"59
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+"88
 [v _INT_CallBack INT_CallBack `(v  1 e 1 0 ]
-"71
+"97
 [v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
-"75
+"101
 [v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]
 "38 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/pins.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 "39 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-[s S26 . 6 `VEE12491 1 currState 1 0 `a 1 sendFlag 1 1 `a 1 isDelaying 1 2 `uc 1 data 1 3 `VEui 1 timer_tick 2 4 ]
-"17 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\code/lib/lcd/lcd.c
-[v _LCD_Module LCD_Module `VES26  1 e 6 0 ]
-[s S196 . 1 `uc 1 INTEDG 1 0 :1:0 
+"45 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+"126
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"140
+[v _TMR0_DefaultCallback TMR0_DefaultCallback `(v  1 s 1 TMR0_DefaultCallback ]
+[s S108 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "370 D:/Apps/Tools/Microchip/MPLABX/v6.20/packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc/pic16f18877.h
-[u S201 . 1 `S196 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES201  1 e 1 @11 ]
+[u S113 . 1 `S108 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES113  1 e 1 @11 ]
 "676
 [v _TRISA TRISA `VEuc  1 e 1 @17 ]
 "738
@@ -68,7 +73,7 @@ LCD_DELAYING 2
 [v _LATB LATB `VEuc  1 e 1 @23 ]
 "1080
 [v _LATC LATC `VEuc  1 e 1 @24 ]
-[s S32 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S282 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -78,20 +83,50 @@ LCD_DELAYING 2
 `uc 1 LATC7 1 0 :1:7 
 ]
 "1097
-[u S41 . 1 `S32 1 . 1 0 ]
-[v _LATCbits LATCbits `VES41  1 e 1 @24 ]
+[u S291 . 1 `S282 1 . 1 0 ]
+[v _LATCbits LATCbits `VES291  1 e 1 @24 ]
 "1142
 [v _LATD LATD `VEuc  1 e 1 @25 ]
 "1204
 [v _LATE LATE `VEuc  1 e 1 @26 ]
-[s S183 . 1 `uc 1 INTF 1 0 :1:0 
+"1236
+[v _TMR0L TMR0L `VEuc  1 e 1 @28 ]
+"1374
+[v _TMR0H TMR0H `VEuc  1 e 1 @29 ]
+"1628
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @30 ]
+[s S209 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+`uc 1 T016BIT 1 0 :1:4 
+`uc 1 T0OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 T0EN 1 0 :1:7 
+]
+"1648
+[s S215 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+`uc 1 T0OUTPS1 1 0 :1:1 
+`uc 1 T0OUTPS2 1 0 :1:2 
+`uc 1 T0OUTPS3 1 0 :1:3 
+]
+[u S220 . 1 `S209 1 . 1 0 `S215 1 . 1 0 ]
+[v _T0CON0bits T0CON0bits `VES220  1 e 1 @30 ]
+"1693
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @31 ]
+[s S95 . 1 `uc 1 INTF 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIF 1 0 :1:4 
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "21263
-[u S188 . 1 `S183 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES188  1 e 1 @1804 ]
+[u S100 . 1 `S95 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES100  1 e 1 @1804 ]
+[s S131 . 1 `uc 1 INTE 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+"21685
+[u S136 . 1 `S131 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES136  1 e 1 @1814 ]
 "23431
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
 "23571
@@ -176,17 +211,27 @@ LCD_DELAYING 2
 [v _IOCEN IOCEN `VEuc  1 e 1 @8042 ]
 "35990
 [v _IOCEF IOCEF `VEuc  1 e 1 @8043 ]
+[s S276 . 6 `VEa 1 busyflag 1 0 `VEE12510 1 currState 1 1 `a 1 sendFlag 1 2 `uc 1 data 1 3 `VEui 1 timer_tick 2 4 ]
+"17 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\lib/lcd/lcd.c
+[v _LCD_Module LCD_Module `VES276  1 e 6 0 ]
 "38 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/interrupt.c
 [v _INT_InterruptHandler INT_InterruptHandler `*.37(v  1 e 2 0 ]
-"45 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\main.c
+"38 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_PeriodMatchCallback TMR0_PeriodMatchCallback `*.37(v  1 s 2 TMR0_PeriodMatchCallback ]
+"43 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"69
+"66
 } 0
 "39 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"44
+"45
+} 0
+"45 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+{
+"62
 } 0
 "38 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/pins.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -198,14 +243,29 @@ LCD_DELAYING 2
 {
 "50
 } 0
-"71
+"97
 [v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
 {
 [v INT_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
-"73
+"99
 } 0
 "39 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/clock.c
 [v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
 {
 "55
+} 0
+"59 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/system/src/interrupt.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+{
+"77
+} 0
+"126 D:\SideProject\Pratice\Microchip\ProTimer\ProTimer.X\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+{
+"133
+} 0
+"140
+[v _TMR0_DefaultCallback TMR0_DefaultCallback `(v  1 s 1 TMR0_DefaultCallback ]
+{
+"143
 } 0

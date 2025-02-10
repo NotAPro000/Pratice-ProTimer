@@ -11,7 +11,9 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
+    
+#include "mcc_generated_files/system/system.h"
+#include "./lib/lcd/lcd.h"
     void CustomInitialize();
 
 

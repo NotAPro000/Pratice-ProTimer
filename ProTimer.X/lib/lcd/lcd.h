@@ -13,7 +13,7 @@
 extern "C" {
 #endif
     
-#include "../../../mcc_generated_files/system/system.h" // Include MCC
+#include "../../main.h" // Include MCC
 
 
 #define LCD_Data LATD                           // Setting LCD Byte Data Port
@@ -45,7 +45,7 @@ extern "C" {
     
     typedef struct{
         volatile bool busyflag;
-        volatile LCD_State currState;
+        volatile enum LCD_State currState;
         bool sendFlag;
         unsigned char data;
         volatile unsigned int timer_tick; 

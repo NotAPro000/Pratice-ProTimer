@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "lib/protimer/protimer.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,12 +6,13 @@
 # 1 "<built-in>" 2
 # 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 37 "main.c"
-# 1 "./main.h" 1
-# 15 "./main.h"
-# 1 "./mcc_generated_files/system/system.h" 1
-# 39 "./mcc_generated_files/system/system.h"
+# 1 "lib/protimer/protimer.c" 2
+# 1 "lib/protimer/./protimer.h" 1
+# 15 "lib/protimer/./protimer.h"
+# 1 "lib/protimer/./../../main.h" 1
+# 15 "lib/protimer/./../../main.h"
+# 1 "lib/protimer/./../../mcc_generated_files/system/system.h" 1
+# 39 "lib/protimer/./../../mcc_generated_files/system/system.h"
 # 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
 # 18 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -20726,19 +20727,19 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 40 "./mcc_generated_files/system/system.h" 2
+# 40 "lib/protimer/./../../mcc_generated_files/system/system.h" 2
 
 # 1 "D:\\Apps\\Tools\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
-# 42 "./mcc_generated_files/system/system.h" 2
-# 1 "./mcc_generated_files/system/config_bits.h" 1
-# 39 "./mcc_generated_files/system/config_bits.h"
-# 1 "./mcc_generated_files/system/../system/clock.h" 1
-# 56 "./mcc_generated_files/system/../system/clock.h"
+# 42 "lib/protimer/./../../mcc_generated_files/system/system.h" 2
+# 1 "lib/protimer/./../../mcc_generated_files/system/config_bits.h" 1
+# 39 "lib/protimer/./../../mcc_generated_files/system/config_bits.h"
+# 1 "lib/protimer/./../../mcc_generated_files/system/../system/clock.h" 1
+# 56 "lib/protimer/./../../mcc_generated_files/system/../system/clock.h"
 void CLOCK_Initialize(void);
-# 40 "./mcc_generated_files/system/config_bits.h" 2
-# 43 "./mcc_generated_files/system/system.h" 2
-# 1 "./mcc_generated_files/system/../system/pins.h" 1
-# 248 "./mcc_generated_files/system/../system/pins.h"
+# 40 "lib/protimer/./../../mcc_generated_files/system/config_bits.h" 2
+# 43 "lib/protimer/./../../mcc_generated_files/system/system.h" 2
+# 1 "lib/protimer/./../../mcc_generated_files/system/../system/pins.h" 1
+# 248 "lib/protimer/./../../mcc_generated_files/system/../system/pins.h"
 void PIN_MANAGER_Initialize (void);
 
 
@@ -20748,27 +20749,27 @@ void PIN_MANAGER_Initialize (void);
 
 
 void PIN_MANAGER_IOC(void);
-# 44 "./mcc_generated_files/system/system.h" 2
-# 1 "./mcc_generated_files/system/../system/interrupt.h" 1
-# 85 "./mcc_generated_files/system/../system/interrupt.h"
+# 44 "lib/protimer/./../../mcc_generated_files/system/system.h" 2
+# 1 "lib/protimer/./../../mcc_generated_files/system/../system/interrupt.h" 1
+# 85 "lib/protimer/./../../mcc_generated_files/system/../system/interrupt.h"
 void INTERRUPT_Initialize (void);
-# 139 "./mcc_generated_files/system/../system/interrupt.h"
+# 139 "lib/protimer/./../../mcc_generated_files/system/../system/interrupt.h"
 void INT_ISR(void);
-# 148 "./mcc_generated_files/system/../system/interrupt.h"
+# 148 "lib/protimer/./../../mcc_generated_files/system/../system/interrupt.h"
 void INT_CallBack(void);
-# 157 "./mcc_generated_files/system/../system/interrupt.h"
+# 157 "lib/protimer/./../../mcc_generated_files/system/../system/interrupt.h"
 void INT_SetInterruptHandler(void (* InterruptHandler)(void));
-# 166 "./mcc_generated_files/system/../system/interrupt.h"
+# 166 "lib/protimer/./../../mcc_generated_files/system/../system/interrupt.h"
 extern void (*INT_InterruptHandler)(void);
-# 175 "./mcc_generated_files/system/../system/interrupt.h"
+# 175 "lib/protimer/./../../mcc_generated_files/system/../system/interrupt.h"
 void INT_DefaultInterruptHandler(void);
-# 45 "./mcc_generated_files/system/system.h" 2
+# 45 "lib/protimer/./../../mcc_generated_files/system/system.h" 2
 
-# 1 "./mcc_generated_files/system/../timer/tmr0.h" 1
-# 40 "./mcc_generated_files/system/../timer/tmr0.h"
-# 1 "./mcc_generated_files/system/../timer/tmr0_deprecated.h" 1
-# 41 "./mcc_generated_files/system/../timer/tmr0.h" 2
-# 162 "./mcc_generated_files/system/../timer/tmr0.h"
+# 1 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h" 1
+# 40 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h"
+# 1 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0_deprecated.h" 1
+# 41 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h" 2
+# 162 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h"
 void TMR0_Initialize(void);
 
 
@@ -20778,17 +20779,17 @@ void TMR0_Initialize(void);
 
 
 void TMR0_Deinitialize(void);
-# 179 "./mcc_generated_files/system/../timer/tmr0.h"
+# 179 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h"
 void TMR0_Start(void);
-# 188 "./mcc_generated_files/system/../timer/tmr0.h"
+# 188 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h"
 void TMR0_Stop(void);
-# 197 "./mcc_generated_files/system/../timer/tmr0.h"
+# 197 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h"
 uint8_t TMR0_CounterGet(void);
-# 206 "./mcc_generated_files/system/../timer/tmr0.h"
+# 206 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h"
 void TMR0_CounterSet(uint8_t counterValue);
-# 215 "./mcc_generated_files/system/../timer/tmr0.h"
+# 215 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h"
 void TMR0_PeriodSet(uint8_t periodCount);
-# 224 "./mcc_generated_files/system/../timer/tmr0.h"
+# 224 "lib/protimer/./../../mcc_generated_files/system/../timer/tmr0.h"
 uint8_t TMR0_PeriodGet(void);
 
 
@@ -20830,7 +20831,7 @@ void TMR0_ISR(void);
 
 
 void TMR0_PeriodMatchCallbackRegister(void (* CallbackHandler)(void));
-# 47 "./mcc_generated_files/system/system.h" 2
+# 47 "lib/protimer/./../../mcc_generated_files/system/system.h" 2
 
 
 
@@ -20840,12 +20841,12 @@ void TMR0_PeriodMatchCallbackRegister(void (* CallbackHandler)(void));
 
 
 void SYSTEM_Initialize(void);
-# 16 "./main.h" 2
-# 1 "././lib/lcd/lcd.h" 1
-# 16 "././lib/lcd/lcd.h"
-# 1 "./main.h" 1
-# 17 "././lib/lcd/lcd.h" 2
-# 40 "././lib/lcd/lcd.h"
+# 16 "lib/protimer/./../../main.h" 2
+# 1 "lib/protimer/./../.././lib/lcd/lcd.h" 1
+# 16 "lib/protimer/./../.././lib/lcd/lcd.h"
+# 1 "lib/protimer/./../../main.h" 1
+# 17 "lib/protimer/./../.././lib/lcd/lcd.h" 2
+# 40 "lib/protimer/./../.././lib/lcd/lcd.h"
     enum LCD_State: unsigned char{
         LCD_IDLE = 0,
         LCD_SENDING = 1,
@@ -20872,24 +20873,8 @@ void SYSTEM_Initialize(void);
     void LCD_Pulse(void);
     void LCD_Task(void);
     void LCD_TimerStep(void);
-# 17 "./main.h" 2
+# 17 "lib/protimer/./../../main.h" 2
  void CustomInitialize();
-# 38 "main.c" 2
+# 16 "lib/protimer/./protimer.h" 2
+# 1 "lib/protimer/protimer.c" 2
 
-
-
-
-
-int main(void)
-{
-    SYSTEM_Initialize();
-# 62 "main.c"
-    while(1)
-    {
-
-    }
-}
-
-void CustomInitialize(void){
-
-}

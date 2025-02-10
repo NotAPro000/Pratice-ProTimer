@@ -33,8 +33,7 @@
     THIS SOFTWARE.
 */
 
-#include "mcc_generated_files/system/system.h"
-#include "code/lib/lcd/lcd.h"
+
 #include "main.h"
 
 /*
@@ -67,5 +66,5 @@ int main(void)
 }
 
 void CustomInitialize(void){
-    TMR0_PeriodMatchCallbackRegister();
+    // TMR0_PeriodMatchCallbackRegister();
 }
