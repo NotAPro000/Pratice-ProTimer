@@ -1,7 +1,7 @@
 # MPLAB X IDE build artifacts
-nbproject/private/
-build/
-dist/
+/ProTimer.X/nbproject/private/
+/ProTimer.X/build/
+/ProTimer.X/dist/
 *.hex
 *.cof
 *.elf
