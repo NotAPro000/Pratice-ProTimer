@@ -1,1 +1,12 @@
-/ProTimer.X/nbproject/
+# MPLAB X IDE build artifacts
+nbproject/private/
+build/
+dist/
+*.hex
+*.cof
+*.elf
+*.map
+*.o
+*.d
+*.lst
+*.sdb
