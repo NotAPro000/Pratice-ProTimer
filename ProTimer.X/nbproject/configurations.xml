@@ -27,7 +27,7 @@
           <itemPath>mcc_generated_files/timer/tmr0_deprecated.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>code/lib/lcd/main.h</itemPath>
+      <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -72,8 +72,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>code/lib/lcd</Elem>
-    <Elem>lib</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
