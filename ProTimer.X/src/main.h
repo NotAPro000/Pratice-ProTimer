@@ -12,8 +12,8 @@
 extern "C" {
 #endif
     
-#include "mcc_generated_files/system/system.h"
-#include "./lib/lcd/lcd.h"
+#include "../mcc_generated_files/system/system.h"
+#include "lcd/lcd.h"
     void CustomInitialize();
 
 
