@@ -5,9 +5,6 @@
  * Created on January 14, 2025, 3:02 PM
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "lcd.h"
 
 /*
