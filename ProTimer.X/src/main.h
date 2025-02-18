@@ -11,12 +11,12 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-    
-#include "../mcc_generated_files/system/system.h"
+
+#include "../mcc_generated_files/system/system.h" 
 #include "lcd/lcd.h"
-    void CustomInitialize();
+#include "protimer/protimer.h"
 
-
+void Timer_Task(void);
 
 #ifdef	__cplusplus
 }

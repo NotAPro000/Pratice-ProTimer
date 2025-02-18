@@ -35,6 +35,7 @@
 
 
 #include "main.h"
+#include "protimer/protimer.h"
 
 /*
     Main application
@@ -61,10 +62,12 @@ int main(void)
 
     while(1)
     {
+        ProTimer_Task();
         
     }    
 }
 
-void CustomInitialize(void){
-    // TMR0_PeriodMatchCallbackRegister();
+
+void Timer_Task(void){
+    ProTimer_Millis();
 }

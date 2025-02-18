@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-#include "../../main.h"
+#include "/../main.h"
 
     extern unsigned long protimer_millisCount;
     
