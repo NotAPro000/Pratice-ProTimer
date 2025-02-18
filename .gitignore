@@ -5,7 +5,6 @@
 /ProTimer.X/nbproject/Makefile-default.mk
 /ProTimer.X/build/
 /ProTimer.X/dist/
-/.vscode
 *.hex
 *.cof
 *.elf
@@ -14,3 +13,6 @@
 *.d
 *.lst
 *.sdb
+/.vscode
+/_build/
+/cmake/
