@@ -13,6 +13,7 @@
 *.d
 *.lst
 *.sdb
-/.vscode
+# /.vscode
 /_build/
-/cmake/
+# /cmake/
+/out/
