@@ -1,0 +1,147 @@
+{
+    "importedFrom": "file:///d:/SideProject/Pratice/Microchip/ProTimer/ProTimer.X",
+    "version": "1.3",
+    "configurations": [
+        {
+            "name": "default",
+            "id": "conf1",
+            "targetDevice": "PIC16F18877",
+            "imageType": "application",
+            "imagePath": "./out/ProTimer/default.elf",
+            "platformTool": "default-tool-base",
+            "packs": [
+                {
+                    "name": "PIC16F1xxxx_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.24.387"
+                }
+            ],
+            "fileSet": "MPLAB X Virtual Filesystem",
+            "toolchain": "default-XC8"
+        }
+    ],
+    "propertyGroups": [
+        {
+            "name": "default-XC8",
+            "type": "toolchain",
+            "provider": "microchip.toolchains:xc8@3.00",
+            "properties": {
+                "HI-TECH-COMP.define-macros": [],
+                "HI-TECH-COMP.undefine-macros": [],
+                "HI-TECH-COMP.extra-include-directories": [],
+                "HI-TECH-COMP.asmlist": true,
+                "HI-TECH-COMP.optimization-assembler-files": true,
+                "HI-TECH-COMP.tentative-definitions": "-fno-common",
+                "HI-TECH-LINK.input-libraries": [
+                    "libm"
+                ],
+                "HI-TECH-LINK.extra-lib-directories": [],
+                "HI-TECH-LINK.opt-xc8-linker-serial": []
+            }
+        }
+    ],
+    "fileSets": [
+        {
+            "name": "lcd_header",
+            "files": [
+                "ProTimer.X/src/lcd/lcd.h"
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "lcd_source",
+            "files": [
+                "ProTimer.X/src/lcd/lcd.c"
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "protimer_header",
+            "files": [
+                "ProTimer.X/src/protimer/protimer.h"
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "protimer_source",
+            "files": [
+                "ProTimer.X/src/protimer/protimer.c"
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "system_header",
+            "files": [
+                "ProTimer.X/mcc_generated_files/system/interrupt.h",
+                "ProTimer.X/mcc_generated_files/system/system.h",
+                "ProTimer.X/mcc_generated_files/system/pins.h",
+                "ProTimer.X/mcc_generated_files/system/clock.h",
+                "ProTimer.X/mcc_generated_files/system/config_bits.h"
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "system_source",
+            "files": [
+                "ProTimer.X/mcc_generated_files/system/src/system.c",
+                "ProTimer.X/mcc_generated_files/system/src/clock.c",
+                "ProTimer.X/mcc_generated_files/system/src/config_bits.c",
+                "ProTimer.X/mcc_generated_files/system/src/pins.c",
+                "ProTimer.X/mcc_generated_files/system/src/interrupt.c"
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "timer_header",
+            "files": [
+                "ProTimer.X/mcc_generated_files/timer/tmr0.h",
+                "ProTimer.X/mcc_generated_files/timer/tmr0_deprecated.h"
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "timer_source",
+            "files": [
+                "ProTimer.X/mcc_generated_files/timer/src/tmr0.c"
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "MCC Generated Files",
+            "files": [
+                {"fileSet": "system_header"},
+                {"fileSet": "system_source"},
+                {"fileSet": "timer_header"},
+                {"fileSet": "timer_source"}
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "Header Files",
+            "files": [
+                "ProTimer.X/src/main.h",
+                {"fileSet": "lcd_header"},
+                {"fileSet": "protimer_header"}
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "Source Files",
+            "files": [
+                "ProTimer.X/src/main.c",
+                {"fileSet": "lcd_source"},
+                {"fileSet": "protimer_source"}
+            ],
+            "encoding": "UTF-8"
+        },
+        {
+            "name": "MPLAB X Virtual Filesystem",
+            "files": [
+                {"fileSet": "Header Files"},
+                {"fileSet": "Source Files"},
+                {"fileSet": "MCC Generated Files"}
+            ],
+            "encoding": "UTF-8"
+        }
+    ]
+}
