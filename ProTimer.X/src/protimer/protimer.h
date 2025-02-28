@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-#include "/../main.h"
+#include "../lcd/lcd.h"
 
     extern unsigned long protimer_millisCount;
     
@@ -24,19 +24,22 @@ extern "C" {
         ProTimer_Pause = 4
     }ProTimer_State;
     
+    typedef enum:unsigned char{
+        State_Entry = 0,
+        State_During = 1,
+        State_Exit = 2
+    }State_t;
+
     typedef struct{
         ProTimer_State currState;
+        ProTimer_State prevState;
     }ProTimer_t;
     
     void ProTimer_Task(void);
     void ProTimer_Millis(void);
     
     
-    static void ProTimer_Handle_Idle(void);
-    static void ProTimer_Handle_TimeSet(void);
-    static void ProTimer_Handle_Stat(void);
-    static void ProTimer_Handle_CountDown(void);
-    static void ProTimer_Handle_Pause(void);
+    
     
 
 #ifdef	__cplusplus
