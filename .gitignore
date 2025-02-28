@@ -16,5 +16,5 @@
 *.sdb
 # /.vscode
 /_build/
-# /cmake/
+/cmake/
 /out/
