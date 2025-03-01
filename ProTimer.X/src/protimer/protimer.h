@@ -8,15 +8,16 @@
 #ifndef PROTIMER_H
 #define	PROTIMER_H
 
+#include <stdint.h>
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
 #include "../lcd/lcd.h"
 
-    extern unsigned long protimer_millisCount;
-    
-    typedef enum:unsigned char{
+    extern uint32_t protimer_millisCount;
+   
+    typedef enum:uint8_t{
         ProTimer_Idle = 0,
         ProTimer_TimeSet = 1,
         ProTimer_Stat = 2,
@@ -24,7 +25,7 @@ extern "C" {
         ProTimer_Pause = 4
     }ProTimer_State;
     
-    typedef enum:unsigned char{
+    typedef enum:uint8_t{
         State_Entry = 0,
         State_During = 1,
         State_Exit = 2
@@ -33,6 +34,7 @@ extern "C" {
     typedef struct{
         ProTimer_State currState;
         ProTimer_State prevState;
+        uint32_t curTime, elapsedTime;
     }ProTimer_t;
     
     void ProTimer_Task(void);

@@ -13,7 +13,7 @@
 
 volatile LCD_t LCD_Module;
 
-void LCD_Init(void){
+void LCD_Initialize(void){
     LCD_Module.currState = LCD_IDLE;
     LCD_Module.timer_tick = 0;
     LCD_RS_SetLow();
@@ -65,21 +65,24 @@ void LCD_Pulse(void){
 }
 
 
-// For Furture Oprion
-void LCD_Task(void){
-    switch(LCD_Module.currState){
-        case LCD_IDLE:
-            if(LCD_Module.sendFlag){
-                
-                LCD_Module.currState = LCD_SENDING;
-            }
-            break;
-        case LCD_SENDING:
-            break;
-        case LCD_DELAYING:
-            break;
-        default:
-            break;
-    }
-}
+// // For Furture Operation
+// void LCD_Task(void){
+//     switch(LCD_Module.currState){
+//         case LCD_IDLE:
+//             if(LCD_Module.sendFlag){
+//                 LCD_Module.currState = LCD_SENDING;
+//             }
+//             break;
+//         case LCD_SENDING:
+//             break;
+//         case LCD_DELAYING:
+//             break;
+//         default:
+//             break;
+//     }
+// }
 
+void LCD_Clear(void){
+    LCD_Command(LCD_CLEAR);
+    __delay_ms(2);
+}
