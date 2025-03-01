@@ -70,6 +70,10 @@ void LCD_Pulse(void){
 //     switch(LCD_Module.currState){
 //         case LCD_IDLE:
 //             if(LCD_Module.sendFlag){
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 614f73a (WIP Protimer Display Message Display Time LCD Add Clear fucntion)
 //                 LCD_Module.currState = LCD_SENDING;
 //             }
 //             break;
