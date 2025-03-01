@@ -38,21 +38,38 @@ void ProTimer_Task(void){
             break;
         case ProTimer_TimeSet:{
             // Entry
-            if(proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_Idle(State_Entry);
+            if(proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_TimeSet(State_Entry);
             // During 
-            if (proTimer_Module.currState == proTimer_Module.prevState) ProTimer_Handle_Idle(State_During);
+            if (proTimer_Module.currState == proTimer_Module.prevState) ProTimer_Handle_TimeSet(State_During);
             // Exit 
-            if (proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_Idle(State_Exit);
+            if (proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_TimeSet(State_Exit);
             break;
         }
-        case ProTimer_Stat:
-            // ProTimer_Handle_Stat();
+        case ProTimer_Stat:{
+            // Entry
+            if(proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_Stat(State_Entry);
+            // During 
+            if (proTimer_Module.currState == proTimer_Module.prevState) ProTimer_Handle_Stat(State_During);
+            // Exit 
+            if (proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_Stat(State_Exit);
             break;
-        case ProTimer_CountDown:
-            // ProTimer_Handle_CountDown();
+        }
+        case ProTimer_CountDown:{
+            // Entry
+            if(proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_CountDown(State_Entry);
+            // During 
+            if (proTimer_Module.currState == proTimer_Module.prevState) ProTimer_Handle_CountDown(State_During);
+            // Exit 
+            if (proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_CountDown(State_Exit);
             break;
+        }
         case ProTimer_Pause:
-            // ProTimer_Handle_Pause();
+            // Entry
+            if(proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_Pause(State_Entry);
+            // During 
+            if (proTimer_Module.currState == proTimer_Module.prevState) ProTimer_Handle_Pause(State_During);
+            // Exit 
+            if (proTimer_Module.currState != proTimer_Module.prevState) ProTimer_Handle_Pause(State_Exit);
             break;
         default:
             break;
@@ -71,9 +88,10 @@ static void ProTimer_Handle_Idle(State_t s){
             proTimer_Module.prevState = proTimer_Module.currState;
             break;
         }
-        case State_During:
-
+        case State_During:{
+            
             break;
+        }
         case State_Exit:
             DisplayClear();
             break;
