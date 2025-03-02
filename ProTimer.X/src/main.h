@@ -17,6 +17,7 @@ extern "C" {
 #include "protimer/protimer.h"
 
 void Timer_Task(void);
+void Switch_Pressed();
 
 #ifdef	__cplusplus
 }
