@@ -32,11 +32,7 @@
     EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
     THIS SOFTWARE.
 */
-
-
-#include "main.h"
-#include "lcd/lcd.h"
-
+#include "mcc_generated_files/system/system.h"
 
 /*
     Main application
@@ -60,20 +56,9 @@ int main(void)
 
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
-    
-    LCD_Initialize();
-    TMR0_PeriodMatchCallbackRegister(Timer_Task);
+
+
     while(1)
     {
-        ProTimer_Task();
     }    
-}
-
-
-void Timer_Task(void){
-    ProTimer_Millis();
-}
-
-void Switch_Pressed(){
-    
 }
