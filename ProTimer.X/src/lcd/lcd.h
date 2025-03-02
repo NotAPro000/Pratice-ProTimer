@@ -53,7 +53,7 @@ extern "C" {
     
     extern volatile LCD_t LCD_Module;
     
-    void LCD_Init(void);
+    void LCD_Initialize(void);
     void LCD_Command(unsigned char cmd);
     void LCD_Char(unsigned char data);
     void LCD_String(const char *msg);
@@ -63,7 +63,7 @@ extern "C" {
     void LCD_Pulse(void);
     void LCD_Task(void);
     void LCD_TimerStep(void);
-
+    void LCD_Clear(void);
     
     
     

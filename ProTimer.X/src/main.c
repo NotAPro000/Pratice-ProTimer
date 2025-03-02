@@ -35,6 +35,7 @@
 
 
 #include "main.h"
+#include "lcd/lcd.h"
 
 
 /*
@@ -59,11 +60,12 @@ int main(void)
 
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
-
+    
+    LCD_Initialize();
+    TMR0_PeriodMatchCallbackRegister(Timer_Task);
     while(1)
     {
         ProTimer_Task();
-        
     }    
 }
 
