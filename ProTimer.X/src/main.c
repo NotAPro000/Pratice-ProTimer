@@ -36,11 +36,15 @@
 
 #include "main.h"
 #include "lcd/lcd.h"
+#include <stdint.h>
 
 
 /*
     Main application
 */
+
+static volatile Switch_t sw1, sw2;
+static uint32_t millisCounter = 0;
 
 int main(void)
 {
@@ -61,19 +65,32 @@ int main(void)
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
     
+    Main_Initilaize();
     LCD_Initialize();
     TMR0_PeriodMatchCallbackRegister(Timer_Task);
+    
     while(1)
     {
         ProTimer_Task();
     }    
 }
 
+void Main_Initilaize(void){
+    sw1.state = Switch_None_Press;
+    sw1.press_time = 0;
+    sw2.state= Switch_None_Press;
+    sw2.press_time = 0;
+}
 
 void Timer_Task(void){
     ProTimer_Millis();
+    millisCounter++;
 }
 
 void Switch_Pressed(){
-    
+
 }
+
+
+Switch_Press_State Switch1PressState(void){ return sw1.state;}
+Switch_Press_State Switch2PressState(void){ return sw2.state;}
