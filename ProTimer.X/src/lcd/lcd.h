@@ -13,7 +13,7 @@
 extern "C" {
 #endif
     
-#include "../main.h" // Include MCC
+#include "../../main.h" // Include MCC
 
 
 #define LCD_Data LATD                           // Setting LCD Byte Data Port

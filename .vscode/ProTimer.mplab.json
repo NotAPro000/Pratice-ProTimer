@@ -119,7 +119,7 @@
         {
             "name": "Header Files",
             "files": [
-                "ProTimer.X/src/main.h",
+                "ProTimer.X/main.h",
                 {"fileSet": "lcd_header"},
                 {"fileSet": "protimer_header"}
             ],
@@ -128,7 +128,7 @@
         {
             "name": "Source Files",
             "files": [
-                "ProTimer.X/src/main.c",
+                "ProTimer.X/main.c",
                 {"fileSet": "lcd_source"},
                 {"fileSet": "protimer_source"}
             ],

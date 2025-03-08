@@ -32,11 +32,23 @@
     EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
     THIS SOFTWARE.
 */
-#include "mcc_generated_files/system/system.h"
+
+
+#include "main.h"
+#include <stdint.h>
+
 
 /*
     Main application
 */
+
+static volatile Switch_t sw1, sw2;
+static uint32_t millisCounter = 0;
+
+ButtonConfig buttonList[BUTTON_COUNT] = {
+    {&LATE, 0, 0, false, false, false},
+    {&LATE, 1, 0, false, false, false}
+};
 
 int main(void)
 {
@@ -56,9 +68,33 @@ int main(void)
 
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
-
-
+    
+    Main_Initilaize();
+    LCD_Initialize();
+    TMR0_PeriodMatchCallbackRegister(Timer_Task);
+    
     while(1)
     {
+        ProTimer_Task();
     }    
 }
+
+void Main_Initilaize(void){
+    sw1.state = Switch_None_Press;
+    sw1.press_time = 0;
+    sw2.state= Switch_None_Press;
+    sw2.press_time = 0;
+}
+
+void Timer_Task(void){
+    ProTimer_Millis();
+    millisCounter++;
+}
+
+void CheckButtonState(ButtonConfig *btn){
+
+}
+
+
+
+
