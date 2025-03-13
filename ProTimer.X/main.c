@@ -80,10 +80,7 @@ int main(void)
 }
 
 void Main_Initilaize(void){
-    sw1.state = Switch_None_Press;
-    sw1.press_time = 0;
-    sw2.state= Switch_None_Press;
-    sw2.press_time = 0;
+    
 }
 
 void Timer_Task(void){
@@ -92,7 +89,36 @@ void Timer_Task(void){
 }
 
 void CheckButtonState(ButtonConfig *btn){
+    // Check Current Button State
+    bool isPressed = (*btn->latch & (1<<btn->pin)) == 0;
 
+    if(isPressed != btn->lastButtonState){
+        btn->lastDebounceTime = GetMillis(); // Start Recording Deounce Time
+    }
+
+    if((GetMillis() - btn->lastDebounceTime) > DEBOUNCE_TIME){
+        if( isPressed == false && btn->lastButtonState == true){
+            btn->pressStartTime = GetMillis();
+            btn->buttonPressed = true;
+        }
+        else if(  isPressed== true && btn->lastButtonState == false){
+            uint16_t pressDuration = GetMillis()-btn->pressStartTime;
+            btn->buttonPressed = false;
+
+            if (pressDuration > LONG_PRESS_TIME) {
+                btn->longPressed = true;
+            }
+            else{
+                btn->shortPressed = true;
+            }
+        }
+    }
+    btn->lastButtonState = isPressed;
+
+}
+
+uint32_t GetMillis(){
+    return millisCounter;
 }
 
 

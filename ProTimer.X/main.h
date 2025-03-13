@@ -30,7 +30,8 @@ typedef enum : uint8_t {
 typedef struct{
     volatile uint16_t *latch;
     uint8_t pin;
-    uint16_t pressStartTime;
+    uint16_t pressStartTime, lastDebounceTime;
+    bool lastButtonState;
     bool buttonPressed;
     bool shortPressed;
     bool longPressed;
@@ -45,7 +46,7 @@ extern ButtonConfig buttonList[BUTTON_COUNT];
 
 
 
-
+uint32_t GetMillis();
 void Main_Initilaize(void);
 void Timer_Task(void);
 void Switch_Pressed();
