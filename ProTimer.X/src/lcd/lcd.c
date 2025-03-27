@@ -59,7 +59,7 @@ void LCD_SendByte(unsigned char byte, unsigned char mode){
 
 void LCD_Pulse(void){
     LCD_EN= 1;
-    __delay_us(1);      // 脈衝高電平時間
+    __delay_us(10);      // 脈衝高電平時間
     LCD_EN = 0;
     __delay_us(100);    // 等待 LCD 處理指令
 }

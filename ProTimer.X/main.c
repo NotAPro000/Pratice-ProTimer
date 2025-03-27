@@ -35,6 +35,7 @@
 
 
 #include "main.h"
+#include <stdbool.h>
 #include <stdint.h>
 
 
@@ -42,13 +43,9 @@
     Main application
 */
 
-static volatile Switch_t sw1, sw2;
-static uint32_t millisCounter = 0;
+static volatile uint32_t millisCounter = 0;
 
-ButtonConfig buttonList[BUTTON_COUNT] = {
-    {&LATE, 0, 0, false, false, false},
-    {&LATE, 1, 0, false, false, false}
-};
+ButtonConfig buttonList[BUTTON_COUNT];
 
 int main(void)
 {
@@ -57,8 +54,7 @@ int main(void)
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts 
     // Use the following macros to: 
 
-    // Enable the Global Interrupts 
-    //INTERRUPT_GlobalInterruptEnable(); 
+    
 
     // Disable the Global Interrupts 
     //INTERRUPT_GlobalInterruptDisable(); 
@@ -72,6 +68,10 @@ int main(void)
     Main_Initilaize();
     LCD_Initialize();
     TMR0_PeriodMatchCallbackRegister(Timer_Task);
+    ProTimer_Initialize();
+    
+    // Enable the Global Interrupts 
+    INTERRUPT_GlobalInterruptEnable(); 
     
     while(1)
     {
@@ -80,7 +80,9 @@ int main(void)
 }
 
 void Main_Initilaize(void){
-    
+    buttonList[0] = (ButtonConfig){&LATE, 0, 0, false, false, false};
+    buttonList[0] = (ButtonConfig){&LATE, 1, 0, false, false, false};
+
 }
 
 void Timer_Task(void){
@@ -89,7 +91,8 @@ void Timer_Task(void){
 }
 
 void CheckButtonState(ButtonConfig *btn){
-    // Check Current Button State
+    if(btn == NULL) return;
+    // Check Current Button Statex
     bool isPressed = (*btn->latch & (1<<btn->pin)) == 0;
 
     if(isPressed != btn->lastButtonState){
@@ -102,7 +105,7 @@ void CheckButtonState(ButtonConfig *btn){
             btn->buttonPressed = true;
         }
         else if(  isPressed== true && btn->lastButtonState == false){
-            uint16_t pressDuration = GetMillis()-btn->pressStartTime;
+            uint32_t pressDuration = GetMillis() - btn->pressStartTime;
             btn->buttonPressed = false;
 
             if (pressDuration > LONG_PRESS_TIME) {
@@ -115,6 +118,12 @@ void CheckButtonState(ButtonConfig *btn){
     }
     btn->lastButtonState = isPressed;
 
+}
+
+void ClearButtonFlag(ButtonConfig *btn){
+    btn->longPressed = false;
+    btn->shortPressed = false;
+    btn->buttonPressed = false;
 }
 
 uint32_t GetMillis(){

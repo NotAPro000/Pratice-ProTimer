@@ -8,21 +8,26 @@
 #ifndef PROTIMER_H
 #define	PROTIMER_H
 
-#include <stdint.h>
+
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
+#include <stdint.h>
+#include "../../main.h"
 #include "../lcd/lcd.h"
+#include "../../mcc_generated_files/system/system.h"
+#include <stdint.h>
+#include <stdio.h>
 
-    extern uint32_t protimer_millisCount;
+    extern volatile uint32_t protimer_millisCount;
    
     typedef enum:uint8_t{
-        ProTimer_Idle = 0,
-        ProTimer_TimeSet = 1,
-        ProTimer_Stat = 2,
-        ProTimer_CountDown = 3,
-        ProTimer_Pause = 4
+        Protimer_None = 0,
+        ProTimer_Idle = 1,
+        ProTimer_TimeSet = 2,
+        ProTimer_Stat = 3,
+        ProTimer_CountDown = 4,
+        ProTimer_Pause = 5
     }ProTimer_State;
     
     typedef enum:uint8_t{
@@ -39,7 +44,7 @@ extern "C" {
     
     void ProTimer_Task(void);
     void ProTimer_Millis(void);
-    
+    void ProTimer_Initialize(void);
     
     
     

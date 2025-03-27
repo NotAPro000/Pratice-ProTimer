@@ -1,6 +1,5 @@
 #include "./protimer.h"
-#include <stdint.h>
-#include <stdio.h>
+
 
 
 static void ProTimer_Handle_Idle(State_t s);
@@ -13,11 +12,11 @@ static void DisplayMessage(char *msg, uint8_t column, uint8_t row);
 static void DisplayClear(void);
 
 static ProTimer_t proTimer_Module;
-unsigned long protimer_millisCount = 0;
+volatile uint32_t protimer_millisCount = 0;
 
 void ProTimer_Initialize(void){
     proTimer_Module.currState = ProTimer_Idle;
-    proTimer_Module.prevState = ProTimer_Idle;
+    proTimer_Module.prevState = Protimer_None;
     proTimer_Module.curTime = 0;
     proTimer_Module.elapsedTime = 0;
 }
@@ -82,14 +81,18 @@ static void ProTimer_Handle_Idle(State_t s){
         case State_Entry:{
             proTimer_Module.curTime = 0;
             proTimer_Module.elapsedTime = 0;
-            DisplayTime(0);
-            DisplayMessage("Set", 0, 0);
-            DisplayMessage("Time", 0, 1);
+            // DisplayTime(0);
+            // DisplayMessage("Set Time", 0, 0);
+            DisplayMessage("Test", 0, 0);
             proTimer_Module.prevState = proTimer_Module.currState;
             break;
         }
         case State_During:{
-            
+            CheckButtonState(&buttonList[0]);
+            // if(buttonList[0].buttonPressed){
+            //     proTimer_Module.currState = ProTimer_TimeSet;
+            //     ClearButtonFlag(&buttonList[0]);
+            // }
             break;
         }
         case State_Exit:
@@ -131,7 +134,7 @@ static void DisplayTime(uint32_t time){
     uint16_t m = (uint16_t)(time/60);
     uint8_t s = (uint8_t)(time%60);
     sprintf(buf, "%03d:%02d", m, s);
-    LCD_SetCursor(5, 0);
+    LCD_SetCursor(1, 3);
     LCD_String(buf);
 }
 

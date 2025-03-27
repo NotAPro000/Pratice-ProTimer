@@ -26,18 +26,18 @@
             "type": "toolchain",
             "provider": "microchip.toolchains:xc8@3.00",
             "properties": {
-                "HI-TECH-COMP.define-macros": [],
-                "HI-TECH-COMP.undefine-macros": [],
-                "HI-TECH-COMP.extra-include-directories": [],
                 "HI-TECH-COMP.asmlist": true,
                 "HI-TECH-COMP.optimization-assembler-files": true,
                 "HI-TECH-COMP.tentative-definitions": "-fno-common",
                 "HI-TECH-LINK.input-libraries": [
                     "libm"
-                ],
-                "HI-TECH-LINK.extra-lib-directories": [],
-                "HI-TECH-LINK.opt-xc8-linker-serial": []
+                ]
             }
+        },
+        {
+            "name": "-tool-base",
+            "type": "tool",
+            "properties": {}
         }
     ],
     "fileSets": [
@@ -109,10 +109,18 @@
         {
             "name": "MCC Generated Files",
             "files": [
-                {"fileSet": "system_header"},
-                {"fileSet": "system_source"},
-                {"fileSet": "timer_header"},
-                {"fileSet": "timer_source"}
+                {
+                    "fileSet": "system_header"
+                },
+                {
+                    "fileSet": "system_source"
+                },
+                {
+                    "fileSet": "timer_header"
+                },
+                {
+                    "fileSet": "timer_source"
+                }
             ],
             "encoding": "UTF-8"
         },
@@ -120,8 +128,12 @@
             "name": "Header Files",
             "files": [
                 "ProTimer.X/main.h",
-                {"fileSet": "lcd_header"},
-                {"fileSet": "protimer_header"}
+                {
+                    "fileSet": "lcd_header"
+                },
+                {
+                    "fileSet": "protimer_header"
+                }
             ],
             "encoding": "UTF-8"
         },
@@ -129,17 +141,27 @@
             "name": "Source Files",
             "files": [
                 "ProTimer.X/main.c",
-                {"fileSet": "lcd_source"},
-                {"fileSet": "protimer_source"}
+                {
+                    "fileSet": "lcd_source"
+                },
+                {
+                    "fileSet": "protimer_source"
+                }
             ],
             "encoding": "UTF-8"
         },
         {
             "name": "MPLAB X Virtual Filesystem",
             "files": [
-                {"fileSet": "Header Files"},
-                {"fileSet": "Source Files"},
-                {"fileSet": "MCC Generated Files"}
+                {
+                    "fileSet": "Header Files"
+                },
+                {
+                    "fileSet": "Source Files"
+                },
+                {
+                    "fileSet": "MCC Generated Files"
+                }
             ],
             "encoding": "UTF-8"
         }
