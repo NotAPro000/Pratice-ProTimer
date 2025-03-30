@@ -19,15 +19,10 @@ void LCD_Initialize(void){
     LCD_RS_SetLow();
     LCD_EN_SetLow();
     LCD_Command(LCD_FUNCTION_SET);
-    __delay_ms(1);
     LCD_Command(LCD_RETURN_HOME);
-    __delay_ms(1);
     LCD_Command(LCD_CLEAR);
-    __delay_ms(1);
     LCD_Command(LCD_DISPLAY_ON);
-    __delay_ms(1);
     LCD_Command(LCD_ENTRY_MODE);
-    __delay_ms(2);
 }
 
 void LCD_Command(unsigned char cmd){
@@ -52,17 +47,18 @@ void LCD_SetCursor(unsigned char row, unsigned char col){
 }
 
 void LCD_SendByte(unsigned char byte, unsigned char mode){
-    LCD_RS = mode; // 0=Command 1=Write Data
     LCD_Data = byte;
+    LCD_RS = mode;  // 0=Command 1=Write Data
     LCD_Pulse();
 }
 
 void LCD_Pulse(void){
     LCD_EN= 1;
-    __delay_us(10);      // 脈衝高電平時間
+    __delay_ms(1);    // 脈衝高電平時間
     LCD_EN = 0;
-    __delay_us(100);    // 等待 LCD 處理指令
+    __delay_ms(3);    // 等待 LCD 處理指令
 }
+
 
 
 // // For Furture Operation

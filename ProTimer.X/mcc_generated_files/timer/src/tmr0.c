@@ -44,11 +44,11 @@ static void TMR0_DefaultCallback(void);
 
 void TMR0_Initialize(void)
 {
-    TMR0H = 0x2;                    // Period 1ms; Frequency 3000 Hz; Count 2
+    TMR0H = 0x7C;                    // Period 1ms; Frequency 375000 Hz; Count 124
     TMR0L = 0x0;
     
     T0CON1 = (2 << _T0CON1_T0CS_POSN)   // T0CS FOSC/4
-        | (0 << _T0CON1_T0CKPS_POSN)   // T0CKPS 1:1
+        | (3 << _T0CON1_T0CKPS_POSN)   // T0CKPS 1:8
         | (0 << _T0CON1_T0ASYNC_POSN);  // T0ASYNC synchronised
     
     TMR0_PeriodMatchCallback = TMR0_DefaultCallback;
@@ -56,7 +56,7 @@ void TMR0_Initialize(void)
     PIR0bits.TMR0IF = 0;	   
     PIE0bits.TMR0IE = 1;	
 
-    T0CON0 = (0 << _T0CON0_T0OUTPS_POSN)   // T0OUTPS 1:1
+    T0CON0 = (2 << _T0CON0_T0OUTPS_POSN)   // T0OUTPS 1:3
         | (1 << _T0CON0_T0EN_POSN)   // T0EN enabled
         | (0 << _T0CON0_T016BIT_POSN);  // T016BIT 8-bit
 }

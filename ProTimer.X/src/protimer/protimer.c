@@ -81,9 +81,8 @@ static void ProTimer_Handle_Idle(State_t s){
         case State_Entry:{
             proTimer_Module.curTime = 0;
             proTimer_Module.elapsedTime = 0;
-            // DisplayTime(0);
-            // DisplayMessage("Set Time", 0, 0);
-            DisplayMessage("Test", 0, 0);
+            DisplayTime(0);
+            DisplayMessage("    Set Time    ", 0, 0);
             proTimer_Module.prevState = proTimer_Module.currState;
             break;
         }
@@ -133,8 +132,8 @@ static void DisplayTime(uint32_t time){
     char buf[7];
     uint16_t m = (uint16_t)(time/60);
     uint8_t s = (uint8_t)(time%60);
-    sprintf(buf, "%03d:%02d", m, s);
-    LCD_SetCursor(1, 3);
+    sprintf(buf, "%02d:%02d", m, s);
+    LCD_SetCursor(1, 6);
     LCD_String(buf);
 }
 

@@ -55,7 +55,7 @@
  * @brief Defines the timer prescaled clock frequency in hertz.
  */
 /* cppcheck-suppress misra-c2012-2.5 */ 
-#define TMR0_CLOCK_FREQ (3000UL)
+#define TMR0_CLOCK_FREQ (375000UL)
 /**
  * @ingroup tmr08bit
  * @brief Defines the timer interrupt ticker factor.

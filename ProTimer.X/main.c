@@ -35,6 +35,8 @@
 
 
 #include "main.h"
+#include "src/lcd/lcd.h"
+#include <builtins.h>
 #include <stdbool.h>
 #include <stdint.h>
 
@@ -67,15 +69,16 @@ int main(void)
     
     Main_Initilaize();
     LCD_Initialize();
-    TMR0_PeriodMatchCallbackRegister(Timer_Task);
+    // TMR0_PeriodMatchCallbackRegister(Timer_Task);
     ProTimer_Initialize();
     
     // Enable the Global Interrupts 
-    INTERRUPT_GlobalInterruptEnable(); 
-    
+    // INTERRUPT_GlobalInterruptEnable();    
     while(1)
     {
         ProTimer_Task();
+        
+        __delay_ms(1000);
     }    
 }
 

@@ -4,7 +4,7 @@
     "configurations": [
         {
             "name": "default",
-            "id": "conf1",
+            "id": "",
             "targetDevice": "PIC16F18877",
             "imageType": "application",
             "imagePath": "./out/ProTimer/default.elf",
@@ -17,10 +17,16 @@
                 }
             ],
             "fileSet": "MPLAB X Virtual Filesystem",
-            "toolchain": "default-XC8"
+            "toolchain": "default-XC8",
+            "userVariables": "default-uservariables"
         }
     ],
     "propertyGroups": [
+        {
+            "name": "default-uservariables",
+            "type": "uservariables",
+            "properties": {}
+        },
         {
             "name": "default-XC8",
             "type": "toolchain",
@@ -36,6 +42,16 @@
         },
         {
             "name": "-tool-base",
+            "type": "tool",
+            "properties": {}
+        },
+        {
+            "name": "-tool-base",
+            "type": "tool",
+            "properties": {}
+        },
+        {
+            "name": "default-tool-base",
             "type": "tool",
             "properties": {}
         }
