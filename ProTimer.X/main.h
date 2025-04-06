@@ -28,13 +28,11 @@ typedef enum : uint8_t {
 } Button_State;
 
 typedef struct{
-    volatile uint16_t *latch;
-    uint8_t pin;
-    uint32_t pressStartTime, lastDebounceTime;
-    bool lastButtonState;
-    bool buttonPressed;
-    bool shortPressed;
-    bool longPressed;
+    volatile uint8_t *port;                     // Button Port
+    uint8_t pin;                                // Button Pin Of Port
+    uint32_t pressStartTime, lastDebounceTime;  // Record PressTime And Debounce Time 
+    bool lastRead;                              // Button Read for Debounce
+    bool isPressed, shortPressed, longPressed;
 }ButtonConfig;
 
 typedef struct {
@@ -43,15 +41,18 @@ typedef struct {
 }Switch_t;
 
 extern ButtonConfig buttonList[BUTTON_COUNT];
-
-
+extern ButtonConfig btn1;
+extern uint8_t testList[2];
 
 uint32_t GetMillis();
 void Main_Initilaize(void);
 void Timer_Task(void);
 void Switch_Pressed();
 void CheckButtonState(ButtonConfig *btn);
+// void CheckButton(ButtonConfig *btn);
 void ClearButtonFlag(ButtonConfig *btn);
+
+uint8_t TestListGetNum(uint8_t *num);
 
 #ifdef	__cplusplus
 }

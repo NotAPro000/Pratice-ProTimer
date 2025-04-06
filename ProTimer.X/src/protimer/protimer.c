@@ -1,4 +1,5 @@
 #include "./protimer.h"
+#include <stdint.h>
 
 
 
@@ -81,17 +82,19 @@ static void ProTimer_Handle_Idle(State_t s){
         case State_Entry:{
             proTimer_Module.curTime = 0;
             proTimer_Module.elapsedTime = 0;
-            DisplayTime(0);
             DisplayMessage("    Set Time    ", 0, 0);
             proTimer_Module.prevState = proTimer_Module.currState;
             break;
         }
         case State_During:{
-            CheckButtonState(&buttonList[0]);
-            // if(buttonList[0].buttonPressed){
-            //     proTimer_Module.currState = ProTimer_TimeSet;
-            //     ClearButtonFlag(&buttonList[0]);
-            // }
+            CheckButtonState(&btn1);
+            // CheckButton(&LATE,0);
+            DisplayTime((uint16_t)TestListGetNum(&testList[1]));
+
+            if(btn1.shortPressed){
+                proTimer_Module.currState = ProTimer_TimeSet;
+                ClearButtonFlag(&btn1);
+            }
             break;
         }
         case State_Exit:
@@ -106,9 +109,11 @@ static void ProTimer_Handle_TimeSet(State_t s){
     switch (s) {
         case State_Entry:{
             proTimer_Module.prevState = proTimer_Module.currState;
+            DisplayMessage("    Time Set    ", 0, 0);
             break;
         }
         case State_During:
+            
             break;
         case State_Exit:
             break;

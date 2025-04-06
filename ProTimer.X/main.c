@@ -48,6 +48,8 @@
 static volatile uint32_t millisCounter = 0;
 
 ButtonConfig buttonList[BUTTON_COUNT];
+ButtonConfig btn1;
+uint8_t testList[2] = {0, 1};
 
 int main(void)
 {
@@ -56,36 +58,33 @@ int main(void)
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts 
     // Use the following macros to: 
 
-    
-
     // Disable the Global Interrupts 
     //INTERRUPT_GlobalInterruptDisable(); 
 
     // Enable the Peripheral Interrupts 
-    //INTERRUPT_PeripheralInterruptEnable(); 
+    INTERRUPT_PeripheralInterruptEnable(); 
+    // Enable the Global Interrupts 
+    INTERRUPT_GlobalInterruptEnable();    
 
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
     
     Main_Initilaize();
     LCD_Initialize();
-    // TMR0_PeriodMatchCallbackRegister(Timer_Task);
+    TMR0_PeriodMatchCallbackRegister(Timer_Task);
     ProTimer_Initialize();
     
-    // Enable the Global Interrupts 
-    // INTERRUPT_GlobalInterruptEnable();    
+
     while(1)
     {
         ProTimer_Task();
-        
-        __delay_ms(1000);
     }    
 }
 
 void Main_Initilaize(void){
-    buttonList[0] = (ButtonConfig){&LATE, 0, 0, false, false, false};
-    buttonList[0] = (ButtonConfig){&LATE, 1, 0, false, false, false};
-
+    buttonList[0] = (ButtonConfig){&PORTE, 0, 0, false, false, false};
+    buttonList[1] = (ButtonConfig){&PORTE, 1, 0, false, false, false};
+    btn1 = (ButtonConfig){&PORTE, 0, 0, false, false, false};
 }
 
 void Timer_Task(void){
@@ -95,44 +94,49 @@ void Timer_Task(void){
 
 void CheckButtonState(ButtonConfig *btn){
     if(btn == NULL) return;
-    // Check Current Button Statex
-    bool isPressed = (*btn->latch & (1<<btn->pin)) == 0;
+    // Check Current Button State
+    bool isPressed = (bool)(*(btn->port) & (1<<btn->pin))?0:1;
+    uint32_t curTime = GetMillis();
 
-    if(isPressed != btn->lastButtonState){
-        btn->lastDebounceTime = GetMillis(); // Start Recording Deounce Time
+    // Button Pressed
+    if(isPressed != btn->lastRead ){ 
+        btn->lastDebounceTime = GetMillis();        // Start Recording Deounce Time
+        btn->lastRead = isPressed;
     }
 
-    if((GetMillis() - btn->lastDebounceTime) > DEBOUNCE_TIME){
-        if( isPressed == false && btn->lastButtonState == true){
-            btn->pressStartTime = GetMillis();
-            btn->buttonPressed = true;
-        }
-        else if(  isPressed== true && btn->lastButtonState == false){
-            uint32_t pressDuration = GetMillis() - btn->pressStartTime;
-            btn->buttonPressed = false;
+    
+    if((curTime - btn->lastDebounceTime) >= DEBOUNCE_TIME){
+        if( isPressed !=  btn->isPressed){          // Button State Real Change
+            btn->isPressed = isPressed;             // Update Button State
 
-            if (pressDuration > LONG_PRESS_TIME) {
-                btn->longPressed = true;
+            if(btn->isPressed == true){             // Button Detect Press
+                btn->pressStartTime = curTime;
             }
-            else{
-                btn->shortPressed = true;
+            else{                                   // Button Detect Release
+                if(curTime - btn->pressStartTime > LONG_PRESS_TIME){
+                    btn->longPressed = true;
+                }
+                else{
+                    btn->shortPressed = true;
+                }
             }
+
         }
     }
-    btn->lastButtonState = isPressed;
 
 }
 
 void ClearButtonFlag(ButtonConfig *btn){
     btn->longPressed = false;
     btn->shortPressed = false;
-    btn->buttonPressed = false;
 }
 
 uint32_t GetMillis(){
     return millisCounter;
 }
 
-
+uint8_t TestListGetNum(uint8_t *num){
+    return *num;
+}
 
 
