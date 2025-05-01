@@ -1,15 +1,14 @@
 {
     "importedFrom": "file:///d:/SideProject/Pratice/Microchip/ProTimer/ProTimer.X",
-    "version": "1.4",
+    "version": "1.3",
     "configurations": [
         {
             "name": "default",
             "id": "",
-            "device": "PIC16F18877",
+            "targetDevice": "PIC16F18877",
             "imageType": "application",
             "imagePath": "./out/ProTimer/default.elf",
-            "toolProperties": "default-tool-base",
-            "tool": "Snap",
+            "platformTool": "default-tool-base",
             "packs": [
                 {
                     "name": "PIC16F1xxxx_DFP",

@@ -84,17 +84,17 @@ static void ProTimer_Handle_Idle(State_t s){
             proTimer_Module.elapsedTime = 0;
             DisplayMessage("    Set Time    ", 0, 0);
             proTimer_Module.prevState = proTimer_Module.currState;
+            DisplayTime(proTimer_Module.curTime);
             break;
         }
         case State_During:{
-            CheckButtonState(&btn1);
-            // CheckButton(&LATE,0);
-            DisplayTime((uint16_t)TestListGetNum(&testList[1]));
-
-            if(btn1.shortPressed){
+            
+            CheckButtonState(&buttonList[0]);
+            if(buttonList[0].shortPressed){
                 proTimer_Module.currState = ProTimer_TimeSet;
-                ClearButtonFlag(&btn1);
+                
             }
+            ClearButtonFlag(&buttonList[0]);
             break;
         }
         case State_Exit:
@@ -112,25 +112,130 @@ static void ProTimer_Handle_TimeSet(State_t s){
             DisplayMessage("    Time Set    ", 0, 0);
             break;
         }
-        case State_During:
+        case State_During:{
+            CheckButtonState(&buttonList[0]);
+            CheckButtonState(&buttonList[1]);
+            if(buttonList[0].shortPressed){
+                proTimer_Module.curTime += 60;
+            }
+            
+            if(buttonList[1].shortPressed){
+                proTimer_Module.curTime -= 60;
+            }
+
+            
+            if(buttonList[0].longPressed){
+                proTimer_Module.currState = ProTimer_CountDown;
+            }
+
+
+            DisplayTime(proTimer_Module.curTime);
+
+            ClearButtonFlag(&buttonList[0]);
+            ClearButtonFlag(&buttonList[1]);
             
             break;
-        case State_Exit:
+        }
+        case State_Exit:{
+            DisplayClear();
             break;
+        }
         default:
             break;
     }
     
 }
+
 static void ProTimer_Handle_Stat(State_t s){
-    
+    ButtonConfig *btn = &buttonList[0];
+    CheckButtonState( btn);
+    switch (s) {
+        case State_Entry:{
+            proTimer_Module.prevState = proTimer_Module.currState;
+            DisplayMessage("    Time Stat    ", 0, 0);
+            break;
+        }
+        case State_During:{
+            if(btn->shortPressed){
+                proTimer_Module.currState = ProTimer_Idle;
+                ClearButtonFlag(btn);
+            }
+            break;
+        }
+            
+        case State_Exit:
+            break;
+        default:
+            break;
+    }
 }
+
 static void ProTimer_Handle_CountDown(State_t s){
-    
+    switch (s) {
+        case State_Entry:{
+            proTimer_Module.prevState = proTimer_Module.currState;
+            proTimer_Module.elapsedTime = protimer_millisCount;
+            DisplayMessage("   Count Down    ", 0, 0);
+            break;
+        }
+        case State_During:{
+            
+            CheckButtonState(&buttonList[0]);
+            CheckButtonState(&buttonList[1]);
+
+            if(protimer_millisCount - proTimer_Module.elapsedTime > 1000){
+                proTimer_Module.curTime--;
+                proTimer_Module.elapsedTime = protimer_millisCount;
+            }
+
+
+            if((proTimer_Module.curTime<=0) || (buttonList[1].shortPressed)) proTimer_Module.currState = ProTimer_Idle;
+
+            if(buttonList[0].shortPressed) proTimer_Module.currState = ProTimer_Pause;
+
+
+            DisplayTime(proTimer_Module.curTime);
+            ClearButtonFlag(&buttonList[0]);
+            ClearButtonFlag(&buttonList[1]);
+        
+            break;
+        }
+        case State_Exit:{
+            DisplayClear();
+            break;
+        }
+        default:break;
+    }
 }
 
 static void ProTimer_Handle_Pause(State_t s){
-    
+    switch(s){
+        case State_Entry:{
+            proTimer_Module.prevState = proTimer_Module.currState;
+            DisplayMessage("      Pause     ", 0, 0);
+            DisplayTime(proTimer_Module.curTime);
+            break;
+        }
+
+        case State_During:{
+            CheckButtonState(&buttonList[0]);
+            CheckButtonState(&buttonList[1]);
+
+            if(buttonList[0].shortPressed) proTimer_Module.currState = ProTimer_CountDown;
+            if(buttonList[0].longPressed) proTimer_Module.currState = ProTimer_TimeSet;
+            if(buttonList[1].longPressed) proTimer_Module.currState = ProTimer_Idle;
+
+            ClearButtonFlag(&buttonList[0]);
+            ClearButtonFlag(&buttonList[1]);
+            break;
+        }
+        case State_Exit:{
+            DisplayClear();
+            break;
+        }
+        default: break;
+            
+    }
 }
 
 static void DisplayTime(uint32_t time){

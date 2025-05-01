@@ -21,3 +21,15 @@ ProTimer.X/mcc-manifest-autosave.yml
 /out/
 /.vscode/settings.json
 
+
+.generated_files/
+build/
+dist/
+nbproject/
+Makefile*
+Package-*
+private/
+cmake/**/CMake*
+cmake/**/.generated/*
+!cmake/**/user.cmake
+_build/
